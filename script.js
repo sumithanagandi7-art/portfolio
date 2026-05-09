@@ -19,7 +19,7 @@ document.addEventListener('mousemove', e => {
   requestAnimationFrame(animateCursor);
 })();
 
-document.querySelectorAll('a, button, .proj-card, .ci, .chip').forEach(el => {
+document.querySelectorAll('a, button, .proj-card, .ci, .skill-card').forEach(el => {
   el.addEventListener('mouseenter', () => cursor.classList.add('hovered'));
   el.addEventListener('mouseleave', () => cursor.classList.remove('hovered'));
 });
@@ -65,20 +65,6 @@ const revealObs = new IntersectionObserver(entries => {
   });
 }, { threshold: 0.12 });
 revealEls.forEach(el => revealObs.observe(el));
-
-// ══ Skill bar animation on scroll ══
-const barFills = document.querySelectorAll('.bar-fill');
-const barObs   = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.style.animationPlayState = 'running';
-    }
-  });
-}, { threshold: 0.3 });
-barFills.forEach(b => {
-  b.style.animationPlayState = 'paused';
-  barObs.observe(b);
-});
 
 // ══ Active nav link highlighting ══
 const sections = document.querySelectorAll('section[id]');

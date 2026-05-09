@@ -411,24 +411,12 @@ strong { font-weight: 600; }
 /* ══════════════════════════════════════════
    SKILLS
 ══════════════════════════════════════════ */
-.skills-layout {
-  display: grid;
-  grid-template-columns: 1fr 1.4fr;
-  gap: 64px; align-items: start;
-}
-.skills-info p {
-  font-size: .98rem; line-height: 1.8;
-  color: var(--text-muted); font-weight: 300;
-  margin-bottom: 32px;
-}
-
 .edu-card {
   display: flex; align-items: flex-start; gap: 16px;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 20px 22px;
-  margin-bottom: 28px;
   transition: border-color .2s;
 }
 .edu-card:hover { border-color: var(--border2); }
@@ -453,38 +441,40 @@ strong { font-weight: 600; }
   margin-top: 4px; width: fit-content;
 }
 
-.tool-chips { display: flex; flex-wrap: wrap; gap: 8px; }
-.chip {
-  font-size: .8rem; font-weight: 500;
-  color: var(--text-muted);
-  background: var(--surface2);
+/* Skill cards grid */
+.skill-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 18px;
+}
+.skill-card {
+  display: flex; align-items: flex-start; gap: 14px;
+  background: var(--surface);
   border: 1px solid var(--border);
-  padding: 6px 14px; border-radius: 50px;
-  transition: border-color .2s, color .2s;
+  border-radius: var(--radius);
+  padding: 20px 20px;
+  transition: border-color .22s, transform .22s, background .22s;
+  cursor: default;
 }
-.chip:hover { border-color: var(--border2); color: var(--text); }
-
-/* Skill bars */
-.skills-bars { display: flex; flex-direction: column; gap: 26px; }
-.bar-row {}
-.bar-meta {
-  display: flex; justify-content: space-between;
-  font-size: .87rem; font-weight: 500;
-  color: var(--text-muted); margin-bottom: 9px;
+.skill-card:hover {
+  border-color: rgba(249,115,22,.4);
+  background: rgba(249,115,22,.04);
+  transform: translateY(-3px);
 }
-.bar-meta span:last-child { color: var(--text-dim); }
-.bar-track {
-  height: 5px; background: var(--surface2);
-  border-radius: 50px; overflow: hidden;
+.sk-icon {
+  font-size: 1.7rem; line-height: 1;
+  flex-shrink: 0; margin-top: 2px;
 }
-.bar-fill {
-  height: 100%; width: var(--w);
-  background: linear-gradient(90deg, var(--accent), var(--gold));
-  border-radius: 50px;
-  animation: bar-grow 1.2s cubic-bezier(.4,0,.2,1) both;
-  animation-delay: .3s;
+.sk-body { display: flex; flex-direction: column; gap: 4px; }
+.sk-body h4 {
+  font-family: var(--ff-display);
+  font-size: .98rem; font-weight: 700;
+  color: var(--text); letter-spacing: -.2px;
 }
-@keyframes bar-grow { from { width: 0; } }
+.sk-body p {
+  font-size: .8rem; line-height: 1.55;
+  color: var(--text-muted); font-weight: 300;
+}
 
 /* ══════════════════════════════════════════
    PROJECTS
